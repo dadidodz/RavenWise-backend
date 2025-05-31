@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+
 import { UsersModule } from './modules/v1/users/users.module';
 import { CoursesModule } from './modules/v1/courses/courses.module';
 import { ChaptersModule } from './modules/v1/chapters/chapters.module';
@@ -12,18 +13,20 @@ import { QuizzesModule } from './modules/v1/quizzes/quizzes.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.development',
       isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
     }),
+
     TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        type: 'sqlite',
-        database: config.get<string>('DATABASE_PATH'),
+        type: config.get<'sqlite'>('DB_TYPE'),
+        database: config.get<string>('DB_PATH'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: false,
       }),
-      inject: [ConfigService],
     }),
+
     UsersModule,
     CoursesModule,
     ChaptersModule,
