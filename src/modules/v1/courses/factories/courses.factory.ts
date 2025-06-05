@@ -10,6 +10,6 @@ export async function createFakeCourse(): Promise<CreateCourseDto> {
     description: faker.lorem.sentence(),
     difficulty: faker.helpers.arrayElement([CourseDifficulty.BEGINNER, CourseDifficulty.INTERMEDIATE, CourseDifficulty.ADVANCED, CourseDifficulty.EXPERT]),
     category: faker.helpers.arrayElement([CourseCategory.WEB_DEVELOPMENT, CourseCategory.FRAMEWORK, CourseCategory.PROGRAMMING, CourseCategory.DATA_SCIENCE, CourseCategory.MOBILE_DEVELOPMENT, CourseCategory.DESIGN]),
-    image: faker.image.url()
+    image: faker.image.urlLoremFlickr(),
   };
 }

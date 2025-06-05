@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Course } from './entities/course.entity';
 import { CreateCourseDto } from './dtos/create-course.dto';
 import { UpdateCourseDto } from './dtos/update-course.dto';
+import { Chapter } from '../chapters/entities/chapter.entity';
 
 @Injectable()
 export class CoursesService {
@@ -58,5 +59,18 @@ export class CoursesService {
     return this.courseRepository.find({
       where: { isPublished: true },
     });
+  }
+
+  async findChaptersByCourseId(courseId: number): Promise<Chapter[]> {
+    const course = await this.courseRepository.findOne({
+      where: { id: courseId },
+      relations: ['chapters'], // charger les chapters liés
+    });
+
+    if (!course) {
+      throw new NotFoundException(`Course with id ${courseId} not found`);
+    }
+
+    return course.chapters;
   }
 }

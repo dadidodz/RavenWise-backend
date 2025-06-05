@@ -3,6 +3,7 @@ import { CoursesService } from './courses.service';
 import { CreateCourseDto } from './dtos/create-course.dto';
 import { UpdateCourseDto } from './dtos/update-course.dto';
 import { Course } from './entities/course.entity';
+import { Chapter } from '../chapters/entities/chapter.entity';
 
 @Controller('api/v1/courses')
 export class CoursesController {
@@ -56,5 +57,11 @@ export class CoursesController {
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.coursesService.remove(id);
   }
+
+  @Get(':id/chapters')
+  async getChaptersByCourseId(@Param('id') id: number): Promise<Chapter[]> {
+    return this.coursesService.findChaptersByCourseId(id);
+  }
+
 
 }
