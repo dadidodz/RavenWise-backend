@@ -4,6 +4,7 @@ import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors(); // TODO : Ajouter l'URL du front uniquement
 
   const config = app.get(ConfigService);
   const port = config.get<number>('PORT') ?? 3000;
