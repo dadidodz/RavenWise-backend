@@ -27,6 +27,20 @@ export class UsersController {
     return this.usersService.addCourseToUser(userId, addCourseDto);
   }
 
+  @UseGuards(ClerkAuthGuard)
+  @Post('sync')
+  async syncUser(@Req() req) {
+    // req.clerkUser est injecté par ClerkAuthGuard après validation
+    const clerkUser = req.clerkUser;
+
+    const user = await this.usersService.syncUserFromClerk(clerkUser);
+
+    return {
+      message: 'Utilisateur synchronisé',
+      user,
+    };
+  }
+
   // GET
 
   @Get()
@@ -48,6 +62,7 @@ export class UsersController {
   getUserCourses(@Param('userId') userId: string) {
     return this.usersService.getUserCourses(userId);
   }
+
 
   @UseGuards(ClerkAuthGuard)
   @Get('me')

@@ -50,6 +50,25 @@ export class UsersService {
     return this.userRepository.findOneBy({ id });
   }
 
+  async syncUserFromClerk(clerkUser: any): Promise<User> {
+    const existingUser = await this.userRepository.findOneBy({ id: clerkUser.id });
+
+    if (existingUser) {
+      // L'utilisateur existe déjà, tu peux mettre à jour des infos si besoin
+      return existingUser;
+    }
+
+    // Sinon, créer un nouvel utilisateur dans ta base perso
+    const newUser = this.userRepository.create({
+      id: clerkUser.id,
+      // Ajoute ici d'autres champs si besoin, ex: role, created_at, ...
+      // Par exemple, si tu as email dans clerkUser.emailAddresses[0].emailAddress
+      // email: clerkUser.emailAddresses[0]?.emailAddress || null,
+    });
+
+    return this.userRepository.save(newUser);
+  }
+
 
   async ensureExists(id: string): Promise<void> {
     const exists = await this.userRepository.exists({ where: { id } });
