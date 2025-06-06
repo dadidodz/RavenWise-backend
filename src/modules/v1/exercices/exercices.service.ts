@@ -29,4 +29,9 @@ export class ExercicesService {
 
     return this.exerciceRepository.save(exercice);
   }
+
+  async findOne(id: number): Promise<Exercice | null> {
+    return this.exerciceRepository.findOneBy({ id });
+  }
+
 }
