@@ -42,8 +42,23 @@ export class UsersService {
     return this.userRepository.find();
   }
 
-  findOne(id: string): Promise<User | null> {
+  // findOne(id: string): Promise<User | null> {
+  //   return this.userRepository.findOneBy({ id });
+  // }
+
+  async findOne(id: string): Promise<User | null> {
     return this.userRepository.findOneBy({ id });
+  }
+
+
+  async ensureExists(id: string): Promise<void> {
+    const exists = await this.userRepository.exists({ where: { id } });
+
+    if (!exists) {
+      throw new NotFoundException(`Utilisateur avec l'id ${id} non trouvé.`);
+    }
+
+    // Sinon, rien à faire — on retourne un 200 vide.
   }
 
   async addCourseToUser(userId: string, addCourseDto: AddCourseToUserDto): Promise<AddCourseResponseDto> {
