@@ -9,14 +9,7 @@ import { Chapter } from '../chapters/entities/chapter.entity';
 export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
-  // POST
-  @Post()
-  create(@Body() dto: CreateCourseDto) {
-    return this.coursesService.create(dto);
-  }
-
   // GET
-
   @Get()
   findAll(@Query('published') published?: string) {
     if (published === 'true') {
@@ -26,23 +19,24 @@ export class CoursesController {
     return this.coursesService.findAll();
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.coursesService.findAll();
-  // }
-
-  // @Get('published')
-  // async getPublishedCourses(): Promise<Course[]> {
-  //   return this.coursesService.findPublished();
-  // }
-
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.coursesService.findOne(id);
-  }  
+  }
+
+  @Get(':id/chapters')
+  async getChaptersByCourseId(@Param('id') id: number): Promise<Chapter[]> {
+    return this.coursesService.findChaptersByCourseId(id);
+  }
+
+
+  // POST
+  @Post()
+  create(@Body() dto: CreateCourseDto) {
+    return this.coursesService.create(dto);
+  }
 
   // PATCH
-
   @Patch(':id')
   updateCourse(
     @Param('id', ParseIntPipe) id: number,
@@ -52,16 +46,9 @@ export class CoursesController {
   }
 
   // DELETE
-
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.coursesService.remove(id);
   }
-
-  @Get(':id/chapters')
-  async getChaptersByCourseId(@Param('id') id: number): Promise<Chapter[]> {
-    return this.coursesService.findChaptersByCourseId(id);
-  }
-
 
 }

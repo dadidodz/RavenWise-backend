@@ -13,7 +13,7 @@ export class LessonsController {
   //   return this.lessonsService.findAll();
   // }
   @Get()
-  findAll(@Query('chapterId', ParseIntPipe) chapterId: number) {
+  findAll(@Query('chapterId') chapterId?: number) {
     if (chapterId) {
       return this.lessonsService.findByChapterId(chapterId);
     }

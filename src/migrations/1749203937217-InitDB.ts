@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class InitDB1747305852856 implements MigrationInterface {
-    name = 'InitDB1747305852856'
+export class InitDB1749203937217 implements MigrationInterface {
+    name = 'InitDB1749203937217'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "users" ("id" varchar PRIMARY KEY NOT NULL, "role" text NOT NULL DEFAULT ('free'), "created_at" datetime NOT NULL DEFAULT (datetime('now')), "hours_spent" integer NOT NULL DEFAULT (0))`);
@@ -10,7 +10,8 @@ export class InitDB1747305852856 implements MigrationInterface {
         await queryRunner.query(`CREATE TABLE "exercices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text NOT NULL, "deposit" text, "lessonId" integer)`);
         await queryRunner.query(`CREATE TABLE "lectures" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text NOT NULL, "lessonId" integer)`);
         await queryRunner.query(`CREATE TABLE "lessons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "content" text, "estimated_duration" integer NOT NULL, "type" text NOT NULL, "chapterId" integer, CONSTRAINT "UQ_3dad32ba0ff20feee98b1b0c43d" UNIQUE ("title"))`);
-        await queryRunner.query(`CREATE TABLE "quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer)`);
+        await queryRunner.query(`CREATE TABLE "quiz_answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "answer" text NOT NULL, "isCorrect" boolean NOT NULL DEFAULT (0), "quizId" integer)`);
+        await queryRunner.query(`CREATE TABLE "quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer NOT NULL)`);
         await queryRunner.query(`CREATE TABLE "users_courses" ("course_id" integer NOT NULL, "user_id" varchar NOT NULL, PRIMARY KEY ("course_id", "user_id"))`);
         await queryRunner.query(`CREATE INDEX "IDX_7b0538c99652d7eb1c3ec9e170" ON "users_courses" ("course_id") `);
         await queryRunner.query(`CREATE INDEX "IDX_b04ebfbec561e2e472e3e9fb25" ON "users_courses" ("user_id") `);
@@ -30,7 +31,11 @@ export class InitDB1747305852856 implements MigrationInterface {
         await queryRunner.query(`INSERT INTO "temporary_lessons"("id", "title", "content", "estimated_duration", "type", "chapterId") SELECT "id", "title", "content", "estimated_duration", "type", "chapterId" FROM "lessons"`);
         await queryRunner.query(`DROP TABLE "lessons"`);
         await queryRunner.query(`ALTER TABLE "temporary_lessons" RENAME TO "lessons"`);
-        await queryRunner.query(`CREATE TABLE "temporary_quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer, CONSTRAINT "FK_eba9ff0775c843581aab6916b32" FOREIGN KEY ("lessonId") REFERENCES "lessons" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION)`);
+        await queryRunner.query(`CREATE TABLE "temporary_quiz_answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "answer" text NOT NULL, "isCorrect" boolean NOT NULL DEFAULT (0), "quizId" integer, CONSTRAINT "FK_eafc7d80de07cc970a64e7ab34e" FOREIGN KEY ("quizId") REFERENCES "quizzes" ("id") ON DELETE CASCADE ON UPDATE NO ACTION)`);
+        await queryRunner.query(`INSERT INTO "temporary_quiz_answers"("id", "answer", "isCorrect", "quizId") SELECT "id", "answer", "isCorrect", "quizId" FROM "quiz_answers"`);
+        await queryRunner.query(`DROP TABLE "quiz_answers"`);
+        await queryRunner.query(`ALTER TABLE "temporary_quiz_answers" RENAME TO "quiz_answers"`);
+        await queryRunner.query(`CREATE TABLE "temporary_quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer NOT NULL, CONSTRAINT "FK_eba9ff0775c843581aab6916b32" FOREIGN KEY ("lessonId") REFERENCES "lessons" ("id") ON DELETE CASCADE ON UPDATE NO ACTION)`);
         await queryRunner.query(`INSERT INTO "temporary_quizzes"("id", "question", "lessonId") SELECT "id", "question", "lessonId" FROM "quizzes"`);
         await queryRunner.query(`DROP TABLE "quizzes"`);
         await queryRunner.query(`ALTER TABLE "temporary_quizzes" RENAME TO "quizzes"`);
@@ -54,9 +59,13 @@ export class InitDB1747305852856 implements MigrationInterface {
         await queryRunner.query(`CREATE INDEX "IDX_b04ebfbec561e2e472e3e9fb25" ON "users_courses" ("user_id") `);
         await queryRunner.query(`CREATE INDEX "IDX_7b0538c99652d7eb1c3ec9e170" ON "users_courses" ("course_id") `);
         await queryRunner.query(`ALTER TABLE "quizzes" RENAME TO "temporary_quizzes"`);
-        await queryRunner.query(`CREATE TABLE "quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer)`);
+        await queryRunner.query(`CREATE TABLE "quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer NOT NULL)`);
         await queryRunner.query(`INSERT INTO "quizzes"("id", "question", "lessonId") SELECT "id", "question", "lessonId" FROM "temporary_quizzes"`);
         await queryRunner.query(`DROP TABLE "temporary_quizzes"`);
+        await queryRunner.query(`ALTER TABLE "quiz_answers" RENAME TO "temporary_quiz_answers"`);
+        await queryRunner.query(`CREATE TABLE "quiz_answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "answer" text NOT NULL, "isCorrect" boolean NOT NULL DEFAULT (0), "quizId" integer)`);
+        await queryRunner.query(`INSERT INTO "quiz_answers"("id", "answer", "isCorrect", "quizId") SELECT "id", "answer", "isCorrect", "quizId" FROM "temporary_quiz_answers"`);
+        await queryRunner.query(`DROP TABLE "temporary_quiz_answers"`);
         await queryRunner.query(`ALTER TABLE "lessons" RENAME TO "temporary_lessons"`);
         await queryRunner.query(`CREATE TABLE "lessons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "content" text, "estimated_duration" integer NOT NULL, "type" text NOT NULL, "chapterId" integer, CONSTRAINT "UQ_3dad32ba0ff20feee98b1b0c43d" UNIQUE ("title"))`);
         await queryRunner.query(`INSERT INTO "lessons"("id", "title", "content", "estimated_duration", "type", "chapterId") SELECT "id", "title", "content", "estimated_duration", "type", "chapterId" FROM "temporary_lessons"`);
@@ -77,6 +86,7 @@ export class InitDB1747305852856 implements MigrationInterface {
         await queryRunner.query(`DROP INDEX "IDX_7b0538c99652d7eb1c3ec9e170"`);
         await queryRunner.query(`DROP TABLE "users_courses"`);
         await queryRunner.query(`DROP TABLE "quizzes"`);
+        await queryRunner.query(`DROP TABLE "quiz_answers"`);
         await queryRunner.query(`DROP TABLE "lessons"`);
         await queryRunner.query(`DROP TABLE "lectures"`);
         await queryRunner.query(`DROP TABLE "exercices"`);

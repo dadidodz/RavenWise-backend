@@ -5,41 +5,12 @@ import { User } from './entities/user.entity';
 import { AddCourseToUserDto } from '../courses/dtos/add-course-to-user.dto';
 import { RemoveCourseToUserDto } from '../courses/dtos/remove-course-to-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
-import { ClerkAuthGuard } from 'src/auth/clerk-auth.guard';
+// import { ClerkAuthGuard } from 'src/auth/clerk-auth.guard';
 
 
 @Controller('api/v1/users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
-
-  // POST
-
-  @Post()
-  create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return this.usersService.create(createUserDto);
-  }
-
-  @Post(':userId/courses')
-  async addCourseToUser(
-    @Param('userId') userId: string,
-    @Body() addCourseDto: AddCourseToUserDto,
-  ) {
-    return this.usersService.addCourseToUser(userId, addCourseDto);
-  }
-
-  @UseGuards(ClerkAuthGuard)
-  @Post('sync')
-  async syncUser(@Req() req) {
-    // req.clerkUser est injecté par ClerkAuthGuard après validation
-    const clerkUser = req.clerkUser;
-
-    const user = await this.usersService.syncUserFromClerk(clerkUser);
-
-    return {
-      message: 'Utilisateur synchronisé',
-      user,
-    };
-  }
 
   // GET
 
@@ -58,30 +29,61 @@ export class UsersController {
     await this.usersService.ensureExists(id);
   }
 
-   @Get(':userId/courses')
+  @Get(':userId/courses')
   getUserCourses(@Param('userId') userId: string) {
     return this.usersService.getUserCourses(userId);
   }
 
+  // POST
 
-  @UseGuards(ClerkAuthGuard)
-  @Get('me')
-  async getMe(@Req() req) {
-    const clerkUser = req.clerkUser;
-    if (!clerkUser) {
-      throw new UnauthorizedException();
-    }
-
-    // Vérifier dans ta BDD perso si l'utilisateur existe
-    const user = await this.usersService.findOne(clerkUser.id);
-    if (!user) {
-      throw new NotFoundException(`Utilisateur Clerk ${clerkUser.id} non trouvé`);
-      // OU tu peux faire : await this.usersService.createFromClerkUser(clerkUser);
-      // puis retourner ce nouvel utilisateur
-    }
-
-    return user;
+  @Post()
+  create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return this.usersService.create(createUserDto);
   }
+
+  @Post(':userId/courses')
+  async addCourseToUser(
+    @Param('userId') userId: string,
+    @Body() addCourseDto: AddCourseToUserDto,
+  ) {
+    return this.usersService.addCourseToUser(userId, addCourseDto);
+  }
+
+  // @UseGuards(ClerkAuthGuard)
+  // @Post('sync')
+  // async syncUser(@Req() req) {
+  //   // req.clerkUser est injecté par ClerkAuthGuard après validation
+  //   const clerkUser = req.clerkUser;
+
+  //   const user = await this.usersService.syncUserFromClerk(clerkUser);
+
+  //   return {
+  //     message: 'Utilisateur synchronisé',
+  //     user,
+  //   };
+  // }
+
+  
+
+
+  // @UseGuards(ClerkAuthGuard)
+  // @Get('me')
+  // async getMe(@Req() req) {
+  //   const clerkUser = req.clerkUser;
+  //   if (!clerkUser) {
+  //     throw new UnauthorizedException();
+  //   }
+
+  //   // Vérifier dans ta BDD perso si l'utilisateur existe
+  //   const user = await this.usersService.findOne(clerkUser.id);
+  //   if (!user) {
+  //     throw new NotFoundException(`Utilisateur Clerk ${clerkUser.id} non trouvé`);
+  //     // OU tu peux faire : await this.usersService.createFromClerkUser(clerkUser);
+  //     // puis retourner ce nouvel utilisateur
+  //   }
+
+  //   return user;
+  // }
 
   // PATCH
 

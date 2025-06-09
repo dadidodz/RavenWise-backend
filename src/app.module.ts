@@ -9,6 +9,7 @@ import { LessonsModule } from './modules/v1/lessons/lessons.module';
 import { ExercicesModule } from './modules/v1/exercices/exercices.module';
 import { LecturesModule } from './modules/v1/lectures/lectures.module';
 import { QuizzesModule } from './modules/v1/quizzes/quizzes.module';
+import { QuizAnswersModule } from './modules/v1/quiz_answers/quiz_answers.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { QuizzesModule } from './modules/v1/quizzes/quizzes.module';
     ExercicesModule,
     LecturesModule,
     QuizzesModule,
+    QuizAnswersModule,
   ],
 })
 export class AppModule {}

@@ -30,5 +30,8 @@ export class LecturesService {
         return this.lectureRepository.save(lecture);
     }
 
+    async findOne(id: number): Promise<Lecture | null> {
+        return this.lectureRepository.findOneBy({ id });
+    }
 
 }
