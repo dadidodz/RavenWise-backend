@@ -6,10 +6,13 @@ import {
     ManyToMany,
     JoinTable,
     PrimaryColumn,
+    OneToMany,
 } from 'typeorm';
 import { Exclude, Expose } from 'class-transformer';
 import { Course } from '../../courses/entities/course.entity';
 import { UserRole } from '../enum/user-role.enum';
+import { Publication } from '../../publications/entities/publication.entity';
+import { Message } from '../../messages/entities/message.entity';
 
 @Entity('users')
 export class User {
@@ -44,5 +47,13 @@ export class User {
         onDelete: 'CASCADE',
     })
     courses: Course[];
+
+
+    @OneToMany(() => Publication, (publication) => publication.author)
+    publications: Publication[];
+
+    @OneToMany(() => Message, (message) => message.author)
+    messages: Message[];
+
 }
   

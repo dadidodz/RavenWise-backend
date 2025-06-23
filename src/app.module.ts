@@ -10,6 +10,8 @@ import { ExercicesModule } from './modules/v1/exercices/exercices.module';
 import { LecturesModule } from './modules/v1/lectures/lectures.module';
 import { QuizzesModule } from './modules/v1/quizzes/quizzes.module';
 import { QuizAnswersModule } from './modules/v1/quiz_answers/quiz_answers.module';
+import { PublicationsModule } from './modules/v1/publications/publications.module';
+import { MessagesModule } from './modules/v1/messages/messages.module';
 
 @Module({
   imports: [
@@ -36,6 +38,8 @@ import { QuizAnswersModule } from './modules/v1/quiz_answers/quiz_answers.module
     LecturesModule,
     QuizzesModule,
     QuizAnswersModule,
+    PublicationsModule,
+    MessagesModule,
   ],
 })
 export class AppModule {}
