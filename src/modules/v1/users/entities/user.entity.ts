@@ -26,7 +26,7 @@ export class User {
     email: string;
 
     @Column({ type: 'text', nullable: true })
-    imageURL: string;
+    imageUrl: string;
 
     @Column({
         type: 'text',
