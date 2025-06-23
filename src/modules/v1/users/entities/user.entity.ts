@@ -14,7 +14,19 @@ import { UserRole } from '../enum/user-role.enum';
 @Entity('users')
 export class User {
     @PrimaryColumn({ unique: true, nullable: false })
-    id: string;
+    clerkId: string;
+
+    @Column({ type: 'text' })
+    firstName: string;
+
+    @Column({ type: 'text' })
+    lastName: string;
+
+    @Column({ type: 'text', nullable: false })
+    email: string;
+
+    @Column({ type: 'text', nullable: true })
+    imageURL: string;
 
     @Column({
         type: 'text',

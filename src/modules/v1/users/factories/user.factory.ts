@@ -7,10 +7,11 @@ export async function createFakeUser(): Promise<CreateUserDto> {
   // const password = await bcrypt.hash('Password123!', 10);
 
   return {
-    id: faker.string.alphanumeric(20),
-    role: faker.helpers.arrayElement([UserRole.ADMIN, UserRole.FREE, UserRole.PREMIUM])
-    // username: faker.internet.username(),
-    // email: faker.internet.email(),
+    clerkId: faker.string.alphanumeric(20),
+    role: faker.helpers.arrayElement([UserRole.ADMIN, UserRole.FREE, UserRole.PREMIUM]),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    email: faker.internet.email(),
     // password,
   };
 }

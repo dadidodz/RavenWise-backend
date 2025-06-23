@@ -23,7 +23,7 @@ export class UsersService {
   // Méthode pour créer un utilisateur
   async create(createUserDto: CreateUserDto): Promise<User> {
     // Vérification si l'id est déjà utilisé
-    const existingUser = await this.userRepository.findOne({ where: { id: createUserDto.id } });
+    const existingUser = await this.userRepository.findOne({ where: { clerkId: createUserDto.clerkId } });
     if (existingUser) {
       throw new HttpException('Cet uid est déjà utilisé', HttpStatus.BAD_REQUEST);
     }
@@ -46,12 +46,12 @@ export class UsersService {
   //   return this.userRepository.findOneBy({ id });
   // }
 
-  async findOne(id: string): Promise<User | null> {
-    return this.userRepository.findOneBy({ id });
+  async findOne(clerkId: string): Promise<User | null> {
+    return this.userRepository.findOneBy({ clerkId });
   }
 
   async syncUserFromClerk(clerkUser: any): Promise<User> {
-    const existingUser = await this.userRepository.findOneBy({ id: clerkUser.id });
+    const existingUser = await this.userRepository.findOneBy({ clerkId: clerkUser.id });
 
     if (existingUser) {
       // L'utilisateur existe déjà, tu peux mettre à jour des infos si besoin
@@ -60,7 +60,7 @@ export class UsersService {
 
     // Sinon, créer un nouvel utilisateur dans ta base perso
     const newUser = this.userRepository.create({
-      id: clerkUser.id,
+      clerkId: clerkUser.id,
       // Ajoute ici d'autres champs si besoin, ex: role, created_at, ...
       // Par exemple, si tu as email dans clerkUser.emailAddresses[0].emailAddress
       // email: clerkUser.emailAddresses[0]?.emailAddress || null,
@@ -70,11 +70,11 @@ export class UsersService {
   }
 
 
-  async ensureExists(id: string): Promise<void> {
-    const exists = await this.userRepository.exists({ where: { id } });
+  async ensureExists(clerkId: string): Promise<void> {
+    const exists = await this.userRepository.exists({ where: { clerkId } });
 
     if (!exists) {
-      throw new NotFoundException(`Utilisateur avec l'id ${id} non trouvé.`);
+      throw new NotFoundException(`Utilisateur avec l'id ${clerkId} non trouvé.`);
     }
 
     // Sinon, rien à faire — on retourne un 200 vide.
@@ -82,7 +82,7 @@ export class UsersService {
 
   async addCourseToUser(userId: string, addCourseDto: AddCourseToUserDto): Promise<AddCourseResponseDto> {
     const user = await this.userRepository.findOne({
-      where: { id: userId },
+      where: { clerkId: userId },
       relations: ['courses'],
     });
 
@@ -122,7 +122,7 @@ export class UsersService {
 
   async removeCourseFromUser(userId: string, courseId: number): Promise<any> {
     const user = await this.userRepository.findOne({
-      where: { id: userId },
+      where: { clerkId: userId },
       relations: ['courses'],
     });
 
@@ -156,7 +156,7 @@ export class UsersService {
 
   async getUserCourses(userId: string): Promise<Course[]> {
     const user = await this.userRepository.findOne({
-      where: { id: userId },
+      where: { clerkId: userId },
       relations: ['courses'], // charge les cours associés
     });
   
@@ -167,26 +167,26 @@ export class UsersService {
     return user.courses;
   }
 
-  async deleteUserById(id: string): Promise<{ message: string }> {
-    const user = await this.userRepository.findOne({ where: { id } });
+  async deleteUserById(clerkId: string): Promise<{ message: string }> {
+    const user = await this.userRepository.findOne({ where: { clerkId } });
 
     if (!user) {
-      throw new NotFoundException(`User with id ${id} not found`);
+      throw new NotFoundException(`User with id ${clerkId} not found`);
     }
 
-    await this.userRepository.delete(id);
+    await this.userRepository.delete(clerkId);
 
     // Suppression de l'utilisateur
     // await this.userRepository.remove(user);
 
     // Retourner un message de succès
-    return { message: `L'utilisateur avec l'ID ${id} a bien été supprimé.` };
+    return { message: `L'utilisateur avec l'ID ${clerkId} a bien été supprimé.` };
   }
 
-  async update(id: string, dto: UpdateUserDto): Promise<User> {
-    const user = await this.userRepository.findOne({ where: { id } });
+  async update(clerkId: string, dto: UpdateUserDto): Promise<User> {
+    const user = await this.userRepository.findOne({ where: { clerkId } });
     if (!user) {
-      throw new NotFoundException(`User with id ${id} not found`);
+      throw new NotFoundException(`User with id ${clerkId} not found`);
     }
 
     Object.assign(user, dto);

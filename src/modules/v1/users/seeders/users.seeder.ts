@@ -10,7 +10,7 @@ export class UsersSeeder {
       try {
         await this.usersService.create(user);
         // console.log(`Utilisateur ${user.email} inséré.`);
-        console.log(`Utilisateur ${user.id} inséré.`);
+        console.log(`Utilisateur ${user.clerkId} inséré.`);
       } catch (e) {
         console.error(`Erreur insertion utilisateur : ${e.message}`);
       }

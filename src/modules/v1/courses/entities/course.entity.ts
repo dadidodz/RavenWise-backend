@@ -40,7 +40,7 @@ export class Course {
     },
     inverseJoinColumn: {
       name: 'user_id',
-      referencedColumnName: 'id',
+      referencedColumnName: 'clerkId',
     },
   })
   users: User[];

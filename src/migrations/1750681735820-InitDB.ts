@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class InitDB1749203937217 implements MigrationInterface {
-    name = 'InitDB1749203937217'
+export class InitDB1750681735820 implements MigrationInterface {
+    name = 'InitDB1750681735820'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`CREATE TABLE "users" ("id" varchar PRIMARY KEY NOT NULL, "role" text NOT NULL DEFAULT ('free'), "created_at" datetime NOT NULL DEFAULT (datetime('now')), "hours_spent" integer NOT NULL DEFAULT (0))`);
+        await queryRunner.query(`CREATE TABLE "users" ("clerkId" varchar PRIMARY KEY NOT NULL, "firstName" text NOT NULL, "lastName" text NOT NULL, "email" text NOT NULL, "imageURL" text, "role" text NOT NULL DEFAULT ('free'), "created_at" datetime NOT NULL DEFAULT (datetime('now')), "hours_spent" integer NOT NULL DEFAULT (0))`);
         await queryRunner.query(`CREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "description" text, "difficulty" text NOT NULL, "category" text NOT NULL, "image" varchar(255) NOT NULL, "is_published" boolean NOT NULL DEFAULT (0), CONSTRAINT "UQ_a01a7f0e38c6f16024d16058ab5" UNIQUE ("title"))`);
         await queryRunner.query(`CREATE TABLE "chapters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "description" text, "courseId" integer, CONSTRAINT "UQ_02b640f9de4714070b5fd6c0240" UNIQUE ("title"))`);
         await queryRunner.query(`CREATE TABLE "exercices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text NOT NULL, "deposit" text, "lessonId" integer)`);
@@ -41,7 +41,7 @@ export class InitDB1749203937217 implements MigrationInterface {
         await queryRunner.query(`ALTER TABLE "temporary_quizzes" RENAME TO "quizzes"`);
         await queryRunner.query(`DROP INDEX "IDX_7b0538c99652d7eb1c3ec9e170"`);
         await queryRunner.query(`DROP INDEX "IDX_b04ebfbec561e2e472e3e9fb25"`);
-        await queryRunner.query(`CREATE TABLE "temporary_users_courses" ("course_id" integer NOT NULL, "user_id" varchar NOT NULL, CONSTRAINT "FK_7b0538c99652d7eb1c3ec9e1708" FOREIGN KEY ("course_id") REFERENCES "courses" ("id") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT "FK_b04ebfbec561e2e472e3e9fb259" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, PRIMARY KEY ("course_id", "user_id"))`);
+        await queryRunner.query(`CREATE TABLE "temporary_users_courses" ("course_id" integer NOT NULL, "user_id" varchar NOT NULL, CONSTRAINT "FK_7b0538c99652d7eb1c3ec9e1708" FOREIGN KEY ("course_id") REFERENCES "courses" ("id") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT "FK_b04ebfbec561e2e472e3e9fb259" FOREIGN KEY ("user_id") REFERENCES "users" ("clerkId") ON DELETE CASCADE ON UPDATE NO ACTION, PRIMARY KEY ("course_id", "user_id"))`);
         await queryRunner.query(`INSERT INTO "temporary_users_courses"("course_id", "user_id") SELECT "course_id", "user_id" FROM "users_courses"`);
         await queryRunner.query(`DROP TABLE "users_courses"`);
         await queryRunner.query(`ALTER TABLE "temporary_users_courses" RENAME TO "users_courses"`);

@@ -12,9 +12,20 @@ import { UserRole } from '../enum/user-role.enum';
   
   export class CreateUserDto {
     @IsString({message: 'id must be a string'})
-    @Length(20, 20, { message: 'id must be exactly 20 characters long' })
+    // @Length(20, 20, { message: 'id must be exactly 20 characters long' })
+    @IsNotEmpty({message: 'clrekId is required'})
+    clerkId: string;
+
+    @IsString({message: 'id must be a string'})
+    firstName: string;
+
+    @IsString({message: 'id must be a string'})
+    lastName: string;
+
+    @IsString({message: 'id must be a string'})
     @IsNotEmpty({message: 'id is required'})
-    id: string;
+    @IsEmail({}, { message: 'L’email doit être valide.' })
+    email: string;
 
     @IsEnum(UserRole, { message: 'role must be one of: admin, free, or premium' })
     role: UserRole;
