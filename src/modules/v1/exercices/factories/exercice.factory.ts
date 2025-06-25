@@ -13,6 +13,8 @@ export async function createFakeExercice(lessonRepository: Repository<Lesson>): 
     const randomLesson = lesson[Math.floor(Math.random() * lesson.length)];
 
     return {
+        startingCode: faker.lorem.sentences(),
+        solution: faker.lorem.sentences(),
         content: faker.lorem.sentence(),
         deposit: faker.lorem.sentence(),
         lessonId: randomLesson.id

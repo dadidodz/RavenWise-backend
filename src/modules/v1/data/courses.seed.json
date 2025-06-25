@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Apprendre TypeScript de A à Z",
+    "description": "Une formation complète pour maîtriser TypeScript et ses fonctionnalités avancées.",
+    "difficulty": "beginner",
+    "category": "programming",
+    "image": "https://picsum.photos/seed/typescript/400"
+  },
+  {
+    "title": "Développez avec React",
+    "description": "Créez des applications web dynamiques avec la bibliothèque React.",
+    "difficulty": "intermediate",
+    "category": "web development",
+    "image": "https://picsum.photos/seed/react/400"
+  },
+  {
+    "title": "Maîtriser NestJS",
+    "description": "Un guide avancé pour créer des API robustes avec NestJS.",
+    "difficulty": "advanced",
+    "category": "framework",
+    "image": "https://picsum.photos/seed/nestjs/400"
+  },
+  {
+    "title": "UX/UI Design Moderne",
+    "description": "Comprenez les principes fondamentaux du design et appliquez-les à vos projets.",
+    "difficulty": "beginner",
+    "category": "design",
+    "image": "https://picsum.photos/seed/design/400"
+  },
+  {
+    "title": "Introduction à la Data Science",
+    "description": "Explorez les bases de la science des données avec Python et Jupyter.",
+    "difficulty": "beginner",
+    "category": "data science",
+    "image": "https://picsum.photos/seed/data/400"
+  },
+  {
+    "title": "Développement mobile avec Flutter",
+    "description": "Créez des apps mobiles performantes et multiplateformes.",
+    "difficulty": "intermediate",
+    "category": "mobile development",
+    "image": "https://picsum.photos/seed/flutter/400"
+  },
+  {
+    "title": "Angular : Le Guide Complet",
+    "description": "Une formation exhaustive sur le framework Angular.",
+    "difficulty": "advanced",
+    "category": "framework",
+    "image": "https://picsum.photos/seed/angular/400"
+  },
+  {
+    "title": "Python pour débutants",
+    "description": "Apprenez à programmer avec Python, le langage polyvalent.",
+    "difficulty": "beginner",
+    "category": "programming",
+    "image": "https://picsum.photos/seed/python/400"
+  },
+  {
+    "title": "Créer un site e-commerce avec Next.js",
+    "description": "Développez un site moderne avec Next.js et Tailwind CSS.",
+    "difficulty": "intermediate",
+    "category": "web development",
+    "image": "https://picsum.photos/seed/nextjs/400"
+  },
+  {
+    "title": "Perfectionnez vos compétences JavaScript",
+    "description": "Approfondissez votre compréhension de JavaScript avec des cas concrets.",
+    "difficulty": "expert",
+    "category": "programming",
+    "image": "https://picsum.photos/seed/javascript/400"
+  }
+]

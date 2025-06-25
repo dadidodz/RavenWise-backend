@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Introduction à l'algorithmique",
+    "description": "Découvrir la logique des algorithmes et les bases de la résolution de problèmes.",
+    "courseId": 1
+  },
+  {
+    "title": "Les conditions et les boucles",
+    "description": "Utiliser les structures de contrôle pour créer des programmes dynamiques.",
+    "courseId": 2
+  },
+  {
+    "title": "Les fonctions et procédures",
+    "description": "Décomposer un programme en sous-parties réutilisables.",
+    "courseId": 3
+  },
+  {
+    "title": "Manipulation des chaînes de caractères",
+    "description": "Apprendre à gérer et transformer des textes dans un programme.",
+    "courseId": 4
+  },
+  {
+    "title": "Introduction à Git",
+    "description": "Notions de base sur le contrôle de version et la collaboration.",
+    "courseId": 5
+  },
+  {
+    "title": "Les classes et objets",
+    "description": "Mettre en œuvre la programmation orientée objet.",
+    "courseId": 6
+  },
+  {
+    "title": "Les tableaux et listes",
+    "description": "Stocker et manipuler des collections d’éléments.",
+    "courseId": 1
+  },
+  {
+    "title": "Les exceptions et la gestion d'erreurs",
+    "description": "Rendre un programme robuste face aux erreurs.",
+    "courseId": 7
+  },
+  {
+    "title": "Structures de données avancées",
+    "description": "Comprendre les piles, files, arbres, et graphes.",
+    "courseId": 2
+  },
+  {
+    "title": "Programmation asynchrone",
+    "description": "Utiliser les promesses et async/await pour gérer les appels réseau.",
+    "courseId": 8
+  },
+  {
+    "title": "Requêtes HTTP avec fetch",
+    "description": "Communiquer avec une API REST.",
+    "courseId": 9
+  },
+  {
+    "title": "Créer une API REST avec NestJS",
+    "description": "Découverte du framework NestJS pour les applications backend.",
+    "courseId": 10
+  },
+  {
+    "title": "Authentification et autorisation",
+    "description": "Gérer les droits d'accès avec tokens JWT.",
+    "courseId": 5
+  },
+  {
+    "title": "Introduction à SQL",
+    "description": "Lire, écrire et modifier des données en base.",
+    "courseId": 6
+  },
+  {
+    "title": "Relations entre tables",
+    "description": "Comprendre les jointures et les relations clés étrangères.",
+    "courseId": 7
+  },
+  {
+    "title": "Modélisation d'une base de données",
+    "description": "Construire un schéma relationnel cohérent.",
+    "courseId": 3
+  },
+  {
+    "title": "Introduction à TypeScript",
+    "description": "Bénéficier du typage fort dans les projets JavaScript.",
+    "courseId": 4
+  },
+  {
+    "title": "Types génériques en TypeScript",
+    "description": "Créer des fonctions et classes flexibles et sûres.",
+    "courseId": 8
+  },
+  {
+    "title": "Découverte de React",
+    "description": "Premiers pas avec les composants React.",
+    "courseId": 9
+  },
+  {
+    "title": "Hooks React – useState & useEffect",
+    "description": "Gérer l’état et les effets de bord dans React.",
+    "courseId": 9
+  },
+  {
+    "title": "Navigation avec React Router",
+    "description": "Ajouter des routes à une SPA React.",
+    "courseId": 9
+  },
+  {
+    "title": "Créer une interface admin",
+    "description": "Mettre en place un back-office pour gérer les données.",
+    "courseId": 10
+  },
+  {
+    "title": "Tests unitaires avec Jest",
+    "description": "Écrire des tests pour fiabiliser son code.",
+    "courseId": 10
+  },
+  {
+    "title": "Déploiement avec Docker",
+    "description": "Conteneuriser une application pour l'environnement de production.",
+    "courseId": 10
+  },
+  {
+    "title": "CI/CD avec GitHub Actions",
+    "description": "Automatiser le build, les tests et le déploiement.",
+    "courseId": 5
+  },
+  {
+    "title": "Les design patterns courants",
+    "description": "Découvrir les modèles de conception classiques.",
+    "courseId": 6
+  },
+  {
+    "title": "WebSockets et temps réel",
+    "description": "Créer des applications en temps réel avec WebSocket.",
+    "courseId": 8
+  },
+  {
+    "title": "Utilisation de Faker.js",
+    "description": "Générer des données factices pour les tests et démos.",
+    "courseId": 7
+  },
+  {
+    "title": "Gestion des fichiers en backend",
+    "description": "Uploader et stocker des fichiers avec NestJS.",
+    "courseId": 4
+  },
+  {
+    "title": "Création de composants réutilisables",
+    "description": "Structurer une interface propre et modulaire.",
+    "courseId": 9
+  }
+]

@@ -9,7 +9,7 @@ export class Lesson {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true, nullable: false, length: 255 })
+  @Column({ nullable: false, length: 255 })
   title: string;
 
   @Column({ type: 'text', nullable: true })

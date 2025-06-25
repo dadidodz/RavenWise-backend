@@ -1,0 +1,702 @@
+[
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 18,
+    "type": "lecture",
+    "chapterId": 7
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 24,
+    "type": "quiz",
+    "chapterId": 22
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 46,
+    "type": "lecture",
+    "chapterId": 25
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 39,
+    "type": "quiz",
+    "chapterId": 9
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 36,
+    "type": "lecture",
+    "chapterId": 2
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 31,
+    "type": "quiz",
+    "chapterId": 30
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 45,
+    "type": "exercice",
+    "chapterId": 5
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 22,
+    "type": "quiz",
+    "chapterId": 29
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 6,
+    "type": "exercice",
+    "chapterId": 6
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 55,
+    "type": "exercice",
+    "chapterId": 29
+  },
+  {
+    "title": "Gestion des erreurs",
+    "content": "Apprenez à gérer les erreurs et les exceptions pour rendre votre code plus robuste.",
+    "estimatedDuration": 7,
+    "type": "exercice",
+    "chapterId": 9
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 33,
+    "type": "lecture",
+    "chapterId": 13
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 39,
+    "type": "quiz",
+    "chapterId": 29
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 27,
+    "type": "quiz",
+    "chapterId": 26
+  },
+  {
+    "title": "Boucles en programmation",
+    "content": "Découvrez comment utiliser les boucles for et while pour répéter des instructions dans un programme.",
+    "estimatedDuration": 14,
+    "type": "exercice",
+    "chapterId": 9
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 47,
+    "type": "quiz",
+    "chapterId": 18
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 29,
+    "type": "lecture",
+    "chapterId": 30
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 47,
+    "type": "lecture",
+    "chapterId": 21
+  },
+  {
+    "title": "Introduction à la programmation",
+    "content": "Cette leçon présente les concepts de base de la programmation, y compris les variables, les types de données et les structures de contrôle.",
+    "estimatedDuration": 36,
+    "type": "lecture",
+    "chapterId": 23
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 41,
+    "type": "lecture",
+    "chapterId": 3
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 30,
+    "type": "lecture",
+    "chapterId": 10
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 30,
+    "type": "exercice",
+    "chapterId": 9
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 43,
+    "type": "lecture",
+    "chapterId": 20
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 53,
+    "type": "exercice",
+    "chapterId": 19
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 37,
+    "type": "quiz",
+    "chapterId": 11
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 13,
+    "type": "exercice",
+    "chapterId": 21
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 10,
+    "type": "lecture",
+    "chapterId": 8
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 6,
+    "type": "exercice",
+    "chapterId": 9
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 39,
+    "type": "quiz",
+    "chapterId": 9
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 14,
+    "type": "exercice",
+    "chapterId": 29
+  },
+  {
+    "title": "Boucles en programmation",
+    "content": "Découvrez comment utiliser les boucles for et while pour répéter des instructions dans un programme.",
+    "estimatedDuration": 13,
+    "type": "quiz",
+    "chapterId": 18
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 6,
+    "type": "exercice",
+    "chapterId": 13
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 14,
+    "type": "quiz",
+    "chapterId": 24
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 60,
+    "type": "quiz",
+    "chapterId": 13
+  },
+  {
+    "title": "API REST",
+    "content": "Découvrez ce qu'est une API REST, comment elle fonctionne, et comment interagir avec elle.",
+    "estimatedDuration": 60,
+    "type": "quiz",
+    "chapterId": 11
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 24,
+    "type": "exercice",
+    "chapterId": 16
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 29,
+    "type": "exercice",
+    "chapterId": 18
+  },
+  {
+    "title": "Gestion des erreurs",
+    "content": "Apprenez à gérer les erreurs et les exceptions pour rendre votre code plus robuste.",
+    "estimatedDuration": 55,
+    "type": "lecture",
+    "chapterId": 9
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 16,
+    "type": "exercice",
+    "chapterId": 3
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 27,
+    "type": "lecture",
+    "chapterId": 9
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 21,
+    "type": "quiz",
+    "chapterId": 25
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 47,
+    "type": "quiz",
+    "chapterId": 11
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 53,
+    "type": "quiz",
+    "chapterId": 5
+  },
+  {
+    "title": "Boucles en programmation",
+    "content": "Découvrez comment utiliser les boucles for et while pour répéter des instructions dans un programme.",
+    "estimatedDuration": 23,
+    "type": "quiz",
+    "chapterId": 26
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 5,
+    "type": "quiz",
+    "chapterId": 28
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 52,
+    "type": "exercice",
+    "chapterId": 23
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 8,
+    "type": "lecture",
+    "chapterId": 19
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 47,
+    "type": "lecture",
+    "chapterId": 6
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 34,
+    "type": "exercice",
+    "chapterId": 3
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 13,
+    "type": "lecture",
+    "chapterId": 5
+  },
+  {
+    "title": "Gestion des erreurs",
+    "content": "Apprenez à gérer les erreurs et les exceptions pour rendre votre code plus robuste.",
+    "estimatedDuration": 32,
+    "type": "lecture",
+    "chapterId": 19
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 19,
+    "type": "exercice",
+    "chapterId": 8
+  },
+  {
+    "title": "Boucles en programmation",
+    "content": "Découvrez comment utiliser les boucles for et while pour répéter des instructions dans un programme.",
+    "estimatedDuration": 8,
+    "type": "exercice",
+    "chapterId": 3
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 22,
+    "type": "quiz",
+    "chapterId": 19
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 53,
+    "type": "lecture",
+    "chapterId": 16
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 13,
+    "type": "quiz",
+    "chapterId": 9
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 26,
+    "type": "lecture",
+    "chapterId": 6
+  },
+  {
+    "title": "Introduction à la programmation",
+    "content": "Cette leçon présente les concepts de base de la programmation, y compris les variables, les types de données et les structures de contrôle.",
+    "estimatedDuration": 46,
+    "type": "exercice",
+    "chapterId": 11
+  },
+  {
+    "title": "Boucles en programmation",
+    "content": "Découvrez comment utiliser les boucles for et while pour répéter des instructions dans un programme.",
+    "estimatedDuration": 13,
+    "type": "quiz",
+    "chapterId": 18
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 26,
+    "type": "exercice",
+    "chapterId": 10
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 5,
+    "type": "lecture",
+    "chapterId": 30
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 38,
+    "type": "exercice",
+    "chapterId": 17
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 35,
+    "type": "exercice",
+    "chapterId": 20
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 38,
+    "type": "exercice",
+    "chapterId": 23
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 7,
+    "type": "lecture",
+    "chapterId": 14
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 54,
+    "type": "quiz",
+    "chapterId": 5
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 42,
+    "type": "quiz",
+    "chapterId": 7
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 10,
+    "type": "exercice",
+    "chapterId": 24
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 19,
+    "type": "quiz",
+    "chapterId": 9
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 30,
+    "type": "lecture",
+    "chapterId": 15
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 27,
+    "type": "quiz",
+    "chapterId": 21
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 54,
+    "type": "lecture",
+    "chapterId": 2
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 54,
+    "type": "lecture",
+    "chapterId": 11
+  },
+  {
+    "title": "Structures conditionnelles",
+    "content": "Apprenez à utiliser les instructions if, else et else if pour contrôler le flux de votre programme.",
+    "estimatedDuration": 13,
+    "type": "exercice",
+    "chapterId": 7
+  },
+  {
+    "title": "Gestion des erreurs",
+    "content": "Apprenez à gérer les erreurs et les exceptions pour rendre votre code plus robuste.",
+    "estimatedDuration": 32,
+    "type": "quiz",
+    "chapterId": 2
+  },
+  {
+    "title": "Programmation orientée objet",
+    "content": "Introduction aux classes, objets, héritage et encapsulation.",
+    "estimatedDuration": 16,
+    "type": "quiz",
+    "chapterId": 4
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 31,
+    "type": "exercice",
+    "chapterId": 8
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 52,
+    "type": "quiz",
+    "chapterId": 8
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 8,
+    "type": "quiz",
+    "chapterId": 21
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 59,
+    "type": "quiz",
+    "chapterId": 10
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 26,
+    "type": "quiz",
+    "chapterId": 11
+  },
+  {
+    "title": "Les bases de données relationnelles",
+    "content": "Comprenez les concepts de tables, relations, clés primaires et étrangères.",
+    "estimatedDuration": 60,
+    "type": "lecture",
+    "chapterId": 20
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 51,
+    "type": "lecture",
+    "chapterId": 1
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 13,
+    "type": "exercice",
+    "chapterId": 14
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 58,
+    "type": "lecture",
+    "chapterId": 28
+  },
+  {
+    "title": "Déboguer votre code",
+    "content": "Techniques et outils pour identifier et corriger les erreurs dans votre code.",
+    "estimatedDuration": 55,
+    "type": "lecture",
+    "chapterId": 23
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 38,
+    "type": "quiz",
+    "chapterId": 20
+  },
+  {
+    "title": "Fonctions et procédures",
+    "content": "Comprenez comment définir et utiliser des fonctions pour structurer votre code.",
+    "estimatedDuration": 9,
+    "type": "lecture",
+    "chapterId": 21
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 43,
+    "type": "exercice",
+    "chapterId": 29
+  },
+  {
+    "title": "Introduction à la programmation",
+    "content": "Cette leçon présente les concepts de base de la programmation, y compris les variables, les types de données et les structures de contrôle.",
+    "estimatedDuration": 14,
+    "type": "exercice",
+    "chapterId": 4
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 50,
+    "type": "lecture",
+    "chapterId": 21
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 38,
+    "type": "quiz",
+    "chapterId": 16
+  },
+  {
+    "title": "Introduction au HTML",
+    "content": "Apprenez les bases de la structure d'une page web avec HTML.",
+    "estimatedDuration": 36,
+    "type": "lecture",
+    "chapterId": 22
+  },
+  {
+    "title": "Introduction à la programmation",
+    "content": "Cette leçon présente les concepts de base de la programmation, y compris les variables, les types de données et les structures de contrôle.",
+    "estimatedDuration": 26,
+    "type": "quiz",
+    "chapterId": 13
+  },
+  {
+    "title": "Bases de JavaScript",
+    "content": "Commencez à manipuler le DOM et à interagir avec l'utilisateur via JavaScript.",
+    "estimatedDuration": 56,
+    "type": "lecture",
+    "chapterId": 1
+  },
+  {
+    "title": "Git et le contrôle de version",
+    "content": "Introduction à Git, commits, branches, et collaboration via GitHub.",
+    "estimatedDuration": 47,
+    "type": "quiz",
+    "chapterId": 27
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 12,
+    "type": "exercice",
+    "chapterId": 30
+  },
+  {
+    "title": "Requêtes SQL simples",
+    "content": "Écrivez vos premières requêtes SQL pour interroger une base de données.",
+    "estimatedDuration": 43,
+    "type": "quiz",
+    "chapterId": 1
+  },
+  {
+    "title": "Sécurité des applications web",
+    "content": "Notions fondamentales de sécurité comme l'injection SQL, XSS et CSRF.",
+    "estimatedDuration": 15,
+    "type": "exercice",
+    "chapterId": 16
+  },
+  {
+    "title": "CSS pour la mise en forme",
+    "content": "Explorez comment styliser vos pages web avec des feuilles de style CSS.",
+    "estimatedDuration": 58,
+    "type": "exercice",
+    "chapterId": 16
+  }
+]

@@ -13,6 +13,8 @@ import { ChaptersService } from './src/modules/v1/chapters/chapters.service';
 import { LessonsService } from './src/modules/v1/lessons/lessons.service';
 import { ExercicesService } from './src/modules/v1/exercices/exercices.service';
 import { LecturesService } from './src/modules/v1/lectures/lectures.service';
+import { PublicationsService } from './src/modules/v1/publications/publications.service';
+import { MessagesService } from './src/modules/v1/messages/messages.service';
 
 import { UsersSeeder } from './src/modules/v1/users/seeders/users.seeder';
 import { CoursesSeeder } from './src/modules/v1/courses/seeders/courses.seeder';
@@ -22,6 +24,8 @@ import { ExercicesSeeder } from './src/modules/v1/exercices/seeders/exercices.se
 import { LecturesSeeder } from './src/modules/v1/lectures/seeders/lectures.seeder';
 import { QuizzesService } from './src/modules/v1/quizzes/quizzes.service';
 import { QuizzesSeeder } from './src/modules/v1/quizzes/seeders/quizzes.seeder';
+import { PublicationsSeeder } from './src/modules/v1/publications/seeders/publications.seeder';
+import { MessagesSeeder } from './src/modules/v1/messages/seeders/messages.seeder';
 
 
 async function bootstrap() {
@@ -43,15 +47,17 @@ async function bootstrap() {
 
   if (args.includes('chapters') || args.includes('all')) {
     const chaptersService = app.get(ChaptersService);
-    const courseRepository = app.get(getRepositoryToken(Course));
-    const chaptersSeeder = new ChaptersSeeder(chaptersService, courseRepository);
+    // const courseRepository = app.get(getRepositoryToken(Course));
+    // const chaptersSeeder = new ChaptersSeeder(chaptersService, courseRepository);
+    const chaptersSeeder = new ChaptersSeeder(chaptersService);
     await chaptersSeeder.run();
   }
 
   if (args.includes('lessons') || args.includes('all')) {
     const lessonsService = app.get(LessonsService);
-    const chapterRepository = app.get(getRepositoryToken(Chapter));
-    const lessonsSeeder = new LessonsSeeder(lessonsService, chapterRepository);
+    // const chapterRepository = app.get(getRepositoryToken(Chapter));
+    // const lessonsSeeder = new LessonsSeeder(lessonsService, chapterRepository);
+    const lessonsSeeder = new LessonsSeeder(lessonsService);
     await lessonsSeeder.run();
   }
 
@@ -62,18 +68,30 @@ async function bootstrap() {
     await exercicesSeeder.run();
   }
 
-  if (args.includes('lecture') || args.includes('all')) {
+  if (args.includes('lectures') || args.includes('all')) {
     const lecturesService = app.get(LecturesService);
     const lessonRepository = app.get(getRepositoryToken(Lesson));
     const lecturesSeeder = new LecturesSeeder(lecturesService, lessonRepository);
     await lecturesSeeder.run();
   }
 
-  if (args.includes('quiz') || args.includes('all')) {
+  if (args.includes('quizzes') || args.includes('all')) {
     const quizzesService = app.get(QuizzesService);
     const lessonRepository = app.get(getRepositoryToken(Lesson));
     const quizzesSeeder = new QuizzesSeeder(quizzesService, lessonRepository);
     await quizzesSeeder.run();
+  }
+
+  if (args.includes('publications') || args.includes('all')) {
+    const publicationsService = app.get(PublicationsService);
+    const publicationsSeeder = new PublicationsSeeder(publicationsService);
+    await publicationsSeeder.run();
+  }
+
+  if (args.includes('messages') || args.includes('all')) {
+    const messagesService = app.get(MessagesService);
+    const messagesSeeder = new MessagesSeeder(messagesService);
+    await messagesSeeder.run();
   }
 
   await app.close();

@@ -6,11 +6,11 @@ export class Exercice {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @Column({ type: 'boolean' })
-  // obligatoire: boolean;
+  @Column({ type: 'text', nullable: true })
+  startingCode : string;
 
-  // @Column({ length: 50 })
-  // title: string;
+  @Column({ type: 'text', nullable: false })
+  solution : string;
 
   @Column({ type: 'text', nullable: false })
   content: string;

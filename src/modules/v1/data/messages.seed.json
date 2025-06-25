@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "text": "Merci, j'avais du mal avec les promesses, c'est plus clair maintenant !",
+      "created_at": "2025-06-24T10:30:00",
+      "authorClerkId": "user_011",
+      "publicationId": 1
+    },
+    {
+      "id": 2,
+      "text": "Tu pourrais ajouter un exemple avec async/await ?",
+      "created_at": "2025-06-24T10:45:00",
+      "authorClerkId": "user_002",
+      "publicationId": 1
+    },
+    {
+      "id": 3,
+      "text": "Super clair, j’aime bien comment tu expliques les props.",
+      "created_at": "2025-06-22T15:00:00",
+      "authorClerkId": "user_003",
+      "publicationId": 2
+    },
+    {
+      "id": 4,
+      "text": "Un schéma des composants imbriqués serait top !",
+      "created_at": "2025-06-22T15:10:00",
+      "authorClerkId": "user_010",
+      "publicationId": 2
+    },
+    {
+      "id": 5,
+      "text": "Merci pour l’article, Tailwind me semblait obscur au début.",
+      "created_at": "2025-06-20T09:30:00",
+      "authorClerkId": "user_015",
+      "publicationId": 3
+    },
+    {
+      "id": 6,
+      "text": "Tu pourrais comparer avec Bootstrap ?",
+      "created_at": "2025-06-20T09:45:00",
+      "authorClerkId": "user_018",
+      "publicationId": 3
+    },
+    {
+      "id": 7,
+      "text": "Excellente base pour réviser le SQL.",
+      "created_at": "2025-06-18T09:00:00",
+      "authorClerkId": "user_020",
+      "publicationId": 4
+    },
+    {
+      "id": 8,
+      "text": "Merci ! Tu envisages une suite avec les jointures ?",
+      "created_at": "2025-06-18T09:15:00",
+      "authorClerkId": "user_008",
+      "publicationId": 4
+    },
+    {
+      "id": 9,
+      "text": "Je galérais avec NestJS, tu m’as sauvé !",
+      "created_at": "2025-06-16T11:45:00",
+      "authorClerkId": "user_002",
+      "publicationId": 5
+    },
+    {
+      "id": 10,
+      "text": "Il manque juste un exemple d’authentification, sinon top.",
+      "created_at": "2025-06-16T12:00:00",
+      "authorClerkId": "user_014",
+      "publicationId": 5
+    }
+]

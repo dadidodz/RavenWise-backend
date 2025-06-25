@@ -1,0 +1,202 @@
+[
+  {
+    "clerkId": "user_001",
+    "firstName": "Alice",
+    "lastName": "Martin",
+    "email": "alice.martin@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/1.jpg",
+    "role": "free",
+    "created_at": "2025-06-01T08:00:00",
+    "hours_spent": 12
+  },
+  {
+    "clerkId": "user_002",
+    "firstName": "Lucas",
+    "lastName": "Durand",
+    "email": "lucas.durand@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/2.jpg",
+    "role": "pro",
+    "created_at": "2025-06-02T09:15:00",
+    "hours_spent": 24
+  },
+  {
+    "clerkId": "user_003",
+    "firstName": "Emma",
+    "lastName": "Bernard",
+    "email": "emma.bernard@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/3.jpg",
+    "role": "free",
+    "created_at": "2025-06-03T10:30:00",
+    "hours_spent": 8
+  },
+  {
+    "clerkId": "user_004",
+    "firstName": "Maxime",
+    "lastName": "Petit",
+    "email": "maxime.petit@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/4.jpg",
+    "role": "admin",
+    "created_at": "2025-06-04T11:45:00",
+    "hours_spent": 100
+  },
+  {
+    "clerkId": "user_005",
+    "firstName": "Chloé",
+    "lastName": "Robert",
+    "email": "chloe.robert@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/5.jpg",
+    "role": "free",
+    "created_at": "2025-06-05T12:00:00",
+    "hours_spent": 3
+  },
+  {
+    "clerkId": "user_006",
+    "firstName": "Nathan",
+    "lastName": "Richard",
+    "email": "nathan.richard@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/6.jpg",
+    "role": "free",
+    "created_at": "2025-06-06T13:00:00",
+    "hours_spent": 0
+  },
+  {
+    "clerkId": "user_007",
+    "firstName": "Léa",
+    "lastName": "Simon",
+    "email": "lea.simon@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/7.jpg",
+    "role": "free",
+    "created_at": "2025-06-07T14:20:00",
+    "hours_spent": 6
+  },
+  {
+    "clerkId": "user_008",
+    "firstName": "Thomas",
+    "lastName": "Lefebvre",
+    "email": "thomas.lefebvre@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/8.jpg",
+    "role": "pro",
+    "created_at": "2025-06-08T15:30:00",
+    "hours_spent": 48
+  },
+  {
+    "clerkId": "user_009",
+    "firstName": "Camille",
+    "lastName": "Moreau",
+    "email": "camille.moreau@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/9.jpg",
+    "role": "free",
+    "created_at": "2025-06-09T16:00:00",
+    "hours_spent": 5
+  },
+  {
+    "clerkId": "user_010",
+    "firstName": "Julien",
+    "lastName": "Girard",
+    "email": "julien.girard@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/10.jpg",
+    "role": "free",
+    "created_at": "2025-06-10T17:15:00",
+    "hours_spent": 9
+  },
+  {
+    "clerkId": "user_011",
+    "firstName": "Manon",
+    "lastName": "Garcia",
+    "email": "manon.garcia@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+    "role": "free",
+    "created_at": "2025-06-11T10:30:00",
+    "hours_spent": 18
+  },
+  {
+    "clerkId": "user_012",
+    "firstName": "Alexandre",
+    "lastName": "Faure",
+    "email": "alexandre.faure@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+    "role": "pro",
+    "created_at": "2025-06-12T09:00:00",
+    "hours_spent": 40
+  },
+  {
+    "clerkId": "user_013",
+    "firstName": "Laura",
+    "lastName": "Roux",
+    "email": "laura.roux@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/13.jpg",
+    "role": "free",
+    "created_at": "2025-06-13T08:30:00",
+    "hours_spent": 2
+  },
+  {
+    "clerkId": "user_014",
+    "firstName": "Victor",
+    "lastName": "Blanc",
+    "email": "victor.blanc@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/14.jpg",
+    "role": "admin",
+    "created_at": "2025-06-14T13:00:00",
+    "hours_spent": 200
+  },
+  {
+    "clerkId": "user_015",
+    "firstName": "Clara",
+    "lastName": "Guerin",
+    "email": "clara.guerin@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/15.jpg",
+    "role": "free",
+    "created_at": "2025-06-15T14:10:00",
+    "hours_spent": 7
+  },
+  {
+    "clerkId": "user_016",
+    "firstName": "Hugo",
+    "lastName": "Benoit",
+    "email": "hugo.benoit@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/16.jpg",
+    "role": "free",
+    "created_at": "2025-06-16T15:20:00",
+    "hours_spent": 10
+  },
+  {
+    "clerkId": "user_017",
+    "firstName": "Sophie",
+    "lastName": "Leclerc",
+    "email": "sophie.leclerc@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+    "role": "free",
+    "created_at": "2025-06-17T16:30:00",
+    "hours_spent": 11
+  },
+  {
+    "clerkId": "user_018",
+    "firstName": "Romain",
+    "lastName": "Lopez",
+    "email": "romain.lopez@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/18.jpg",
+    "role": "pro",
+    "created_at": "2025-06-18T17:40:00",
+    "hours_spent": 35
+  },
+  {
+    "clerkId": "user_019",
+    "firstName": "Eva",
+    "lastName": "Marchand",
+    "email": "eva.marchand@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/women/19.jpg",
+    "role": "free",
+    "created_at": "2025-06-19T18:50:00",
+    "hours_spent": 4
+  },
+  {
+    "clerkId": "user_020",
+    "firstName": "Antoine",
+    "lastName": "Renaud",
+    "email": "antoine.renaud@example.com",
+    "imageUrl": "https://randomuser.me/api/portraits/men/20.jpg",
+    "role": "free",
+    "created_at": "2025-06-20T19:00:00",
+    "hours_spent": 1
+  }
+]
