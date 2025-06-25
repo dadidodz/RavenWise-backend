@@ -15,7 +15,7 @@
     "lastName": "Durand",
     "email": "lucas.durand@example.com",
     "imageUrl": "https://randomuser.me/api/portraits/men/2.jpg",
-    "role": "pro",
+    "role": "premium",
     "created_at": "2025-06-02T09:15:00",
     "hours_spent": 24
   },
@@ -75,7 +75,7 @@
     "lastName": "Lefebvre",
     "email": "thomas.lefebvre@example.com",
     "imageUrl": "https://randomuser.me/api/portraits/men/8.jpg",
-    "role": "pro",
+    "role": "premium",
     "created_at": "2025-06-08T15:30:00",
     "hours_spent": 48
   },
@@ -115,7 +115,7 @@
     "lastName": "Faure",
     "email": "alexandre.faure@example.com",
     "imageUrl": "https://randomuser.me/api/portraits/men/12.jpg",
-    "role": "pro",
+    "role": "premium",
     "created_at": "2025-06-12T09:00:00",
     "hours_spent": 40
   },
@@ -175,7 +175,7 @@
     "lastName": "Lopez",
     "email": "romain.lopez@example.com",
     "imageUrl": "https://randomuser.me/api/portraits/men/18.jpg",
-    "role": "pro",
+    "role": "premium",
     "created_at": "2025-06-18T17:40:00",
     "hours_spent": 35
   },
