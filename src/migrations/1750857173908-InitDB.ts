@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class InitDB1750842788807 implements MigrationInterface {
-    name = 'InitDB1750842788807'
+export class InitDB1750857173908 implements MigrationInterface {
+    name = 'InitDB1750857173908'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "exercices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "startingCode" text, "solution" text NOT NULL, "content" text NOT NULL, "deposit" text, "lessonId" integer)`);
@@ -11,7 +11,7 @@ export class InitDB1750842788807 implements MigrationInterface {
         await queryRunner.query(`CREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "description" text, "difficulty" text NOT NULL, "category" text NOT NULL, "image" varchar(255) NOT NULL, "is_published" boolean NOT NULL DEFAULT (0), CONSTRAINT "UQ_a01a7f0e38c6f16024d16058ab5" UNIQUE ("title"))`);
         await queryRunner.query(`CREATE TABLE "messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text NOT NULL, "created_at" datetime NOT NULL DEFAULT (datetime('now')), "authorClerkId" varchar NOT NULL, "publicationId" integer NOT NULL)`);
         await queryRunner.query(`CREATE TABLE "publications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "description" text NOT NULL, "category" varchar CHECK( "category" IN ('web development','framework','programming','data science','mobile development','design') ) NOT NULL, "created_at" datetime NOT NULL DEFAULT (datetime('now')), "authorClerkId" varchar NOT NULL)`);
-        await queryRunner.query(`CREATE TABLE "users" ("clerkId" varchar PRIMARY KEY NOT NULL, "firstName" text NOT NULL, "lastName" text NOT NULL, "email" text NOT NULL, "imageUrl" text, "role" text NOT NULL DEFAULT ('free'), "created_at" datetime NOT NULL DEFAULT (datetime('now')), "hours_spent" integer NOT NULL DEFAULT (0))`);
+        await queryRunner.query(`CREATE TABLE "users" ("clerkId" varchar PRIMARY KEY NOT NULL, "firstName" text, "lastName" text, "email" text NOT NULL, "imageUrl" text, "role" text NOT NULL DEFAULT ('free'), "created_at" datetime NOT NULL DEFAULT (datetime('now')), "hours_spent" integer NOT NULL DEFAULT (0))`);
         await queryRunner.query(`CREATE TABLE "quizzes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question" text NOT NULL, "lessonId" integer NOT NULL)`);
         await queryRunner.query(`CREATE TABLE "quiz_answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "answer" text NOT NULL, "isCorrect" boolean NOT NULL DEFAULT (0), "quizId" integer)`);
         await queryRunner.query(`CREATE TABLE "users_courses" ("course_id" integer NOT NULL, "user_id" varchar NOT NULL, PRIMARY KEY ("course_id", "user_id"))`);

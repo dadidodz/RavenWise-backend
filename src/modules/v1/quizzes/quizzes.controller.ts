@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { QuizzesService } from './quizzes.service';
 import { CreateQuizWithAnswersDto } from './dtos/create-quiz-with-answers.dto';
 import { ValidateQuizAnswerDto } from './dtos/validate-quiz-answer.dto';
+import { UpdateQuizWithAnswersDto } from './dtos/update-quiz-with-answers.dto';
+import { Quiz } from './entities/quiz.entity';
 
 @Controller('api/v1/quizzes')
 export class QuizzesController {
@@ -23,6 +25,14 @@ export class QuizzesController {
         @Body() dto: ValidateQuizAnswerDto,
     ) {
         return this.quizzesService.validateAnswer(quizId, dto);
+    }
+
+    @Patch(':id')
+    async update(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() dto: UpdateQuizWithAnswersDto,
+    ): Promise<Quiz> {
+        return this.quizzesService.update(id, dto);
     }
 
 }

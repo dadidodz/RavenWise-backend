@@ -11,6 +11,7 @@ export async function createFakeUser(): Promise<CreateUserDto> {
     role: faker.helpers.arrayElement([UserRole.ADMIN, UserRole.FREE, UserRole.PREMIUM]),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
+    imageUrl: "",
     email: faker.internet.email(),
     // password,
   };

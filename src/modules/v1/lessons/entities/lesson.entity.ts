@@ -3,6 +3,7 @@ import { Chapter } from '../../chapters/entities/chapter.entity';
 import { Exercice } from '../../exercices/entities/exercice.entity';
 import { LessonType } from '../enum/lesson-type.enum';
 import { Lecture } from '../../lectures/entities/lecture.entity';
+import { IsEnum } from 'class-validator';
 
 @Entity('lessons')
 export class Lesson {
@@ -19,6 +20,7 @@ export class Lesson {
   estimatedDuration: number;
 
   @Column({ type: 'text' })
+  @IsEnum(LessonType)
   type: LessonType;
 
   @ManyToOne(() => Chapter, (chapter) => chapter.lessons, { onDelete: 'CASCADE' })

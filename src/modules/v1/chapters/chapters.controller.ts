@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body, Param, Delete, Put, Query, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, Query, ParseIntPipe, Patch } from '@nestjs/common';
 import { ChaptersService } from './chapters.service';
 import { CreateChapterDto } from './dtos/create-chapter.dto';
+import { UpdateChapterDto } from './dtos/update-chapter.dto';
 // import { UpdateChapterDto } from './dtos/update-chapter.dto';
 
 @Controller('api/v1/chapters')
@@ -37,6 +38,15 @@ export class ChaptersController {
   create(@Body() dto: CreateChapterDto) {
     return this.chaptersService.create(dto);
   }
+
+  @Patch(':id')
+  updateChapter(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateChapterDto,
+  ) {
+    return this.chaptersService.update(id, updateDto);
+  }
+    
 
   
 

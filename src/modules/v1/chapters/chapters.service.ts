@@ -5,6 +5,7 @@ import { Chapter } from './entities/chapter.entity';
 import { CreateChapterDto } from './dtos/create-chapter.dto';
 // import { UpdateChapterDto } from './dtos/update-chapter.dto';
 import { Course } from '../courses/entities/course.entity';
+import { UpdateChapterDto } from './dtos/update-chapter.dto';
 
 @Injectable()
 export class ChaptersService {
@@ -65,6 +66,24 @@ export class ChaptersService {
     return this.chapterRepository.count({
       where: { course: { id: courseId } },
     });
+  }
+
+  async update(id: number, dto: UpdateChapterDto): Promise<Chapter> {
+    const chapter = await this.chapterRepository.findOne({ where: { id } });
+    if (!chapter) {
+      throw new NotFoundException(`Chapter with id ${id} not found`);
+    }
+
+    if (dto.courseId) {
+      const course = await this.courseRepository.findOne({ where: { id: dto.courseId } });
+      if (!course) {
+        throw new NotFoundException('Course not found');
+      }
+      chapter.course = course;
+    }
+
+    Object.assign(chapter, dto); // copie les autres champs (titre, etc.)
+    return this.chapterRepository.save(chapter);
   }
 
 }

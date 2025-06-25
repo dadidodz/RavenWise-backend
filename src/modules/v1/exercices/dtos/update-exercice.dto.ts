@@ -1,27 +1,27 @@
-import { IsNotEmpty, IsString, IsBoolean, IsInt, MaxLength, IsOptional } from 'class-validator';
+import { IsEmail, IsEnum, IsInt, IsOptional, IsString, MaxLength, Min } from 'class-validator';
 
-export class CreateExerciceDto {
+export class UpdateExerciceDto {
+
     @IsOptional()
     @IsString({ message: 'startingCode must be a string.' })
-    @IsNotEmpty({ message: 'startingCode is required.' })
     startingCode?: string;
-    
+
+    @IsOptional()
     @IsString({ message: 'Solution must be a string.' })
-    @IsNotEmpty({ message: 'Solution is required.' })
     @MaxLength(10000, { message: 'Solution must not exceed 10,000 characters.' })
-    solution: string;
-
+    solution?: string;
+    
+    @IsOptional()
     @IsString({ message: 'Content must be a string.' })
-    @IsNotEmpty({ message: 'Content is required.' })
     @MaxLength(10000, { message: 'Description must not exceed 10,000 characters.' })
-    content: string;
-
+    content?: string;
+    
     @IsOptional()
     @IsString({ message: 'Image must be a string.' })
     @MaxLength(10000, { message: 'Description must not exceed 10,000 characters.' })
     deposit?: string;
 
+    @IsOptional()
     @IsInt({ message: 'lessonId must be an int.' })
-    @IsNotEmpty({ message: 'lessonId is required.' })
-    lessonId: number;
+    lessonId?: number;
 }

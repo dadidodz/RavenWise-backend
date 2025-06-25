@@ -7,6 +7,7 @@ import { CreateQuizDto } from './dtos/create-quiz.dto';
 import { CreateQuizWithAnswersDto } from './dtos/create-quiz-with-answers.dto';
 import { QuizAnswer } from '../quiz_answers/entities/quiz-answer.entity';
 import { ValidateQuizAnswerDto } from './dtos/validate-quiz-answer.dto';
+import { UpdateQuizWithAnswersDto } from './dtos/update-quiz-with-answers.dto';
 
 @Injectable()
 export class QuizzesService {
@@ -81,22 +82,28 @@ export class QuizzesService {
     // }
 
     async createWithAnswers(dto: CreateQuizWithAnswersDto): Promise<Quiz> {
+        // ✅ 1. Vérifier qu'il y a exactement UNE réponse correcte
         const correctAnswers = dto.answers.filter(ans => ans.isCorrect);
         if (correctAnswers.length !== 1) {
             throw new BadRequestException('Il doit y avoir exactement UNE réponse correcte.');
         }
 
+        // ✅ 2. Vérifier que la lesson existe
         const lesson = await this.lessonRepository.findOneBy({ id: dto.lessonId });
-        if (!lesson) throw new NotFoundException("Leçon introuvable.");
+        if (!lesson) {
+            throw new NotFoundException("Leçon introuvable.");
+        }
 
-        // ✅ Vérification que le type de leçon est 'quiz'
+        // ✅ 3. Vérifier que le type de la leçon est 'quiz'
         if (lesson.type !== 'quiz') {
             throw new BadRequestException(`Impossible d'associer un quiz à une leçon de type "${lesson.type}".`);
         }
 
+        // ✅ 4. Créer et sauvegarder le quiz
         const quiz = this.quizRepository.create({ question: dto.question, lesson });
         await this.quizRepository.save(quiz);
 
+        // ✅ 5. Créer et sauvegarder les réponses associées
         const answers = dto.answers.map(a =>
             this.quizAnswerRepository.create({
             ...a,
@@ -105,6 +112,7 @@ export class QuizzesService {
         );
         await this.quizAnswerRepository.save(answers);
 
+        // ✅ 6. Renvoyer le quiz avec les réponses
         const quizWithAnswers = await this.quizRepository.findOne({
             where: { id: quiz.id },
             relations: ['answers'],
@@ -136,5 +144,65 @@ export class QuizzesService {
 
         return { correct: selectedAnswer.isCorrect };
     }
+
+    async update(id: number, dto: UpdateQuizWithAnswersDto): Promise<Quiz> {
+        const quiz = await this.quizRepository.findOne({
+            where: { id },
+            relations: ['answers', 'lesson'], // charger les relations
+        });
+
+        if (!quiz) {
+            throw new NotFoundException(`Quiz with id ${id} not found`);
+        }
+
+        // Vérification éventuelle du lessonId
+        if (dto.lessonId) {
+            const lesson = await this.lessonRepository.findOne({
+            where: { id: dto.lessonId },
+            });
+
+            if (!lesson) {
+            throw new NotFoundException('Lesson not found');
+            }
+
+            if (lesson.type !== 'quiz') {
+            throw new BadRequestException('Lesson type must be "quiz"');
+            }
+
+            quiz.lesson = lesson;
+        }
+
+        // Mise à jour de la question si fournie
+        if (dto.question) {
+            quiz.question = dto.question;
+        }
+
+        // Mise à jour des réponses si fournies
+        if (dto.answers) {
+            const correctAnswersCount = dto.answers.filter(a => a.isCorrect).length;
+
+            if (correctAnswersCount !== 1) {
+                throw new BadRequestException('Exactly one answer must be marked as correct.');
+            }
+
+            // Supprimer les anciennes réponses
+            await this.quizAnswerRepository.delete({ quiz: { id: quiz.id } });
+
+            // Créer et sauvegarder les nouvelles réponses
+            const newAnswers = dto.answers.map(answer =>
+                this.quizAnswerRepository.create({
+                ...answer,
+                quiz,
+                }),
+            );
+
+            await this.quizAnswerRepository.save(newAnswers);
+            quiz.answers = newAnswers;
+        }
+
+        // Sauvegarde finale du quiz avec ses modifications
+        return this.quizRepository.save(quiz);
+    }
+
 
 }

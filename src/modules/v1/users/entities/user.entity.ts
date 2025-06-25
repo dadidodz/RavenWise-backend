@@ -19,10 +19,10 @@ export class User {
     @PrimaryColumn({ unique: true, nullable: false })
     clerkId: string;
 
-    @Column({ type: 'text' })
+    @Column({ type: 'text', nullable: true })
     firstName: string;
 
-    @Column({ type: 'text' })
+    @Column({ type: 'text', nullable: true })
     lastName: string;
 
     @Column({ type: 'text', nullable: false })
@@ -47,7 +47,6 @@ export class User {
         onDelete: 'CASCADE',
     })
     courses: Course[];
-
 
     @OneToMany(() => Publication, (publication) => publication.author)
     publications: Publication[];

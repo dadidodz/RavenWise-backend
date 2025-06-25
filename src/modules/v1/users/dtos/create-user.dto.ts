@@ -7,6 +7,7 @@ import {
     Matches,
     Length,
     IsEnum,
+    IsOptional,
   } from 'class-validator';
 import { UserRole } from '../enum/user-role.enum';
   
@@ -16,14 +17,20 @@ import { UserRole } from '../enum/user-role.enum';
     @IsNotEmpty({message: 'clrekId is required'})
     clerkId: string;
 
-    @IsString({message: 'id must be a string'})
+    @IsOptional()
+    @IsString({message: 'firstName must be a string'})
     firstName: string;
 
-    @IsString({message: 'id must be a string'})
+    @IsOptional()
+    @IsString({message: 'lastName must be a string'})
     lastName: string;
 
-    @IsString({message: 'id must be a string'})
-    @IsNotEmpty({message: 'id is required'})
+    @IsOptional()
+    @IsString({message: 'imageUrl must be a string'})
+    imageUrl: string;
+
+    @IsString({message: 'email must be a string'})
+    @IsNotEmpty({message: 'email is required'})
     @IsEmail({}, { message: 'L’email doit être valide.' })
     email: string;
 
