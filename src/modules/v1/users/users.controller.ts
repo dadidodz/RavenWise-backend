@@ -5,6 +5,7 @@ import { User } from './entities/user.entity';
 import { AddCourseToUserDto } from '../courses/dtos/add-course-to-user.dto';
 import { RemoveCourseToUserDto } from '../courses/dtos/remove-course-to-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
+import { AddLessonFinishedToUserDto } from '../courses/dtos/add-lessonsFinished-to-user.dto';
 // import { ClerkAuthGuard } from 'src/auth/clerk-auth.guard';
 
 
@@ -34,6 +35,11 @@ export class UsersController {
     return this.usersService.getUserCourses(userId);
   }
 
+  @Get(':userId/lessons')
+  getLessonsFinishedId(@Param('userId') userId: string) {
+    return this.usersService.getLessonsFinishedId(userId);
+  }
+
   // POST
 
   @Post()
@@ -47,6 +53,14 @@ export class UsersController {
     @Body() addCourseDto: AddCourseToUserDto,
   ) {
     return this.usersService.addCourseToUser(userId, addCourseDto);
+  }
+
+  @Post(':userId/lessons')
+  async userFinishedLesson(
+    @Param('userId') userId: string,
+    @Body() addLessonDto: AddLessonFinishedToUserDto,
+  ) {
+    return this.usersService.addLessonFinishedToUser(userId, addLessonDto);
   }
 
   // @UseGuards(ClerkAuthGuard)

@@ -9,6 +9,9 @@ import { Course } from '../courses/entities/course.entity';
 import { AddCourseToUserDto } from '../courses/dtos/add-course-to-user.dto';
 import { AddCourseResponseDto } from '../courses/dtos/add-course-response.dto'; 
 import { UpdateUserDto } from './dtos/update-user.dto';
+import { AddLessonFinishedToUserDto } from '../courses/dtos/add-lessonsFinished-to-user.dto';
+import { AddLessonFinishedResponseDto } from '../courses/dtos/add-lessonsFinished-response.dto';
+import { Lesson } from '../lessons/entities/lesson.entity';
 
 @Injectable()
 export class UsersService {
@@ -17,7 +20,10 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
 
     @InjectRepository(Course)  // Injection du repository de Course
-    private readonly coursesRepository: Repository<Course> 
+    private readonly coursesRepository: Repository<Course>,
+
+    @InjectRepository(Lesson)
+    private readonly lessonsRepository: Repository<Lesson>
   ) {}
 
   // Méthode pour créer un utilisateur
@@ -119,6 +125,45 @@ export class UsersService {
     return response;
   }
 
+  async addLessonFinishedToUser(userId: string, addLessonDto: AddLessonFinishedToUserDto): Promise<AddLessonFinishedResponseDto> {
+    const user = await this.userRepository.findOne({
+      where: { clerkId: userId },
+      relations: ['lessons'],
+    });
+
+    if (!user) {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+
+    const lesson = await this.lessonsRepository.findOne({
+      where: { id: addLessonDto.lessonId },
+    });
+
+    if (!lesson) {
+      throw new HttpException('Course not found', HttpStatus.NOT_FOUND);
+    }
+
+    const response = new AddLessonFinishedResponseDto();
+
+    const alreadySubscribed = user.lessons.some(l => l.id === lesson.id);
+    if (alreadySubscribed) {
+      response.message = 'Vous avez déjà fini cette leçon.';
+    } else {
+      user.lessons.push(lesson);
+      await this.userRepository.save(user);
+      response.message = 'Vous avez bien fini ce cours.';
+    }
+
+    // Transforme pour exclure les champs sensibles
+    const transformedUser = plainToInstance(User, user, {
+      excludeExtraneousValues: true,
+    });
+
+    response.user = transformedUser;
+
+    return response;
+  }
+
 
   async removeCourseFromUser(userId: string, courseId: number): Promise<any> {
     const user = await this.userRepository.findOne({
@@ -165,6 +210,30 @@ export class UsersService {
     }
   
     return user.courses;
+  }
+
+  // async getLessonsFinishedId(userId: string): Promise<Lesson[]> {
+  //   const user = await this.userRepository.findOne({
+  //     where: { clerkId: userId },
+  //     relations: ['lessons'], // charge les cours associés
+  //   });
+  
+  //   if (!user) {
+  //     throw new NotFoundException('Utilisateur non trouvé');
+  //   }
+  
+  //   return user.lessons;
+  // }
+
+  async getLessonsFinishedId(userId: string): Promise<number[]> {
+    const lessons = await this.userRepository
+      .createQueryBuilder('user')
+      .leftJoin('user.lessons', 'lesson')
+      .select('lesson.id', 'id')
+      .where('user.clerkId = :userId', { userId })
+      .getRawMany();
+
+    return lessons.map(l => l.id);
   }
 
   async deleteUserById(clerkId: string): Promise<{ message: string }> {

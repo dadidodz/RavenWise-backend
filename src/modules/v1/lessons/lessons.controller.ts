@@ -1,6 +1,8 @@
-import { Controller, Post, Body, Get, Query, ParseIntPipe, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Query, ParseIntPipe, Param, Patch, Delete } from '@nestjs/common';
 import { LessonsService } from './lessons.service';
 import { CreateLessonDto } from './dtos/create-lesson.dto';
+import { Lesson } from './entities/lesson.entity';
+import { UpdateLessonDto } from './dtos/update-lesson.dto';
 
 @Controller('api/v1/lessons')
 export class LessonsController {
@@ -25,11 +27,29 @@ export class LessonsController {
     return this.lessonsService.getTotalDurationByChapterId(chapterId);
   }
 
+  @Get(':id')
+  findOne(@Param('id') id: number): Promise<Lesson | null> {
+      return this.lessonsService.findOne(+id);
+  }
+
   // POST
 
   @Post()
   create(@Body() dto: CreateLessonDto) {
     return this.lessonsService.create(dto);
+  }
+
+  @Patch(':id')
+  updateLesson(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateLessonDto,
+  ) {
+    return this.lessonsService.update(id, updateDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: number) {
+    return this.lessonsService.remove(id);
   }
 
   

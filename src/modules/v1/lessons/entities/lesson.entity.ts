@@ -1,9 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { Chapter } from '../../chapters/entities/chapter.entity';
 import { Exercice } from '../../exercices/entities/exercice.entity';
 import { LessonType } from '../enum/lesson-type.enum';
 import { Lecture } from '../../lectures/entities/lecture.entity';
 import { IsEnum } from 'class-validator';
+import { User } from '../../users/entities/user.entity';
 
 @Entity('lessons')
 export class Lesson {
@@ -31,4 +32,18 @@ export class Lesson {
 
   @OneToMany(() => Lecture, (lecture) => lecture.lesson)
   lectures: Lecture[];
+
+  @ManyToMany(() => User, (user) => user.lessons)
+  @JoinTable({
+    name: 'users_lessons',
+    joinColumn: {
+      name: 'lesson_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'clerkId',
+    },
+  })
+  users: User[];
 }

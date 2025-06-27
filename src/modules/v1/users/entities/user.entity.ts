@@ -13,6 +13,7 @@ import { Course } from '../../courses/entities/course.entity';
 import { UserRole } from '../enum/user-role.enum';
 import { Publication } from '../../publications/entities/publication.entity';
 import { Message } from '../../messages/entities/message.entity';
+import { Lesson } from '../../lessons/entities/lesson.entity';
 
 @Entity('users')
 export class User {
@@ -47,6 +48,12 @@ export class User {
         onDelete: 'CASCADE',
     })
     courses: Course[];
+
+    @ManyToMany(() => Lesson, (lesson) => lesson.users, {
+        onDelete: 'CASCADE',
+    })
+    lessons: Lesson[];
+
 
     @OneToMany(() => Publication, (publication) => publication.author)
     publications: Publication[];
