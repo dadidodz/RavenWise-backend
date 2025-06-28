@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Lecture } from './entities/lecture.entity';
@@ -78,5 +78,31 @@ export class LecturesService {
         Object.assign(lecture, dto);
         return this.lectureRepository.save(lecture);
     }
+
+    async findOneByLessonId(lessonId: number): Promise<Lecture> {
+        const lesson = await this.lessonRepository.findOne({
+            where: { id: lessonId },
+        });
+
+        if (!lesson) {
+            throw new NotFoundException(`Leçon avec l'id ${lessonId} non trouvée`);
+        }
+
+        if (lesson.type !== 'lecture') {
+            throw new BadRequestException(`La leçon avec l'id ${lessonId} n'est pas de type 'lecture'`);
+        }
+
+        const lecture = await this.lectureRepository.findOne({
+            where: { lesson: { id: lessonId } },
+            relations: ['lesson'],
+        });
+
+        if (!lecture) {
+            throw new NotFoundException(`Aucune lecture trouvée pour la leçon ${lessonId}`);
+        }
+
+        return lecture;
+        }
+
 
 }

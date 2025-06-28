@@ -204,5 +204,31 @@ export class QuizzesService {
         return this.quizRepository.save(quiz);
     }
 
+    async findQuizByLessonId(lessonId: number): Promise<Quiz> {
+        // Vérifie d'abord si la leçon existe
+        const lesson = await this.lessonRepository.findOne({ where: { id: lessonId } });
+
+        if (!lesson) {
+            throw new NotFoundException(`Leçon avec l'id ${lessonId} non trouvée`);
+        }
+
+        if (lesson.type !== 'quiz') {
+            throw new BadRequestException(`La leçon avec l'id ${lessonId} n'est pas de type "quiz"`);
+        }
+
+        // Récupère le quiz avec ses réponses
+        const quiz = await this.quizRepository.findOne({
+            where: { lesson: { id: lessonId } },
+            relations: ['answers'],
+        });
+
+        if (!quiz) {
+            throw new NotFoundException(`Aucun quiz trouvé pour la leçon ${lessonId}`);
+        }
+
+        return quiz;
+    }
+
+
 
 }

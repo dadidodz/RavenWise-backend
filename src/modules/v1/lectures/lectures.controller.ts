@@ -18,11 +18,17 @@ export class LecturesController {
         return this.lecturesService.findOne(+id);
     }
 
+    @Get('by-lesson/:lessonId')
+    async getByLessonId(@Param('lessonId', ParseIntPipe) lessonId: number) {
+        return this.lecturesService.findOneByLessonId(lessonId);
+    }
+
+
     @Patch(':id')
     updateLecture(
-      @Param('id', ParseIntPipe) id: number,
-      @Body() updateDto: UpdateLectureDto,
+        @Param('id', ParseIntPipe) id: number,
+        @Body() updateDto: UpdateLectureDto,
     ) {
-      return this.lecturesService.update(id, updateDto);
+        return this.lecturesService.update(id, updateDto);
     }
 }

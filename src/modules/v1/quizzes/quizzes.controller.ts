@@ -14,6 +14,11 @@ export class QuizzesController {
         return this.quizzesService.findOneWithAnswers(id);
     }
 
+    @Get('by-lesson/:lessonId')
+    async getQuizByLesson(@Param('lessonId', ParseIntPipe) lessonId: number) {
+        return this.quizzesService.findQuizByLessonId(lessonId);
+    }
+
     @Post('with-answers')
     createWithAnswers(@Body() dto: CreateQuizWithAnswersDto) {
         return this.quizzesService.createWithAnswers(dto);

@@ -6,24 +6,31 @@ import { UpdateExerciceDto } from './dtos/update-exercice.dto';
 
 @Controller('api/v1/exercices')
 export class ExercicesController {
-  constructor(private readonly exercicesService: ExercicesService) {}
+    constructor(private readonly exercicesService: ExercicesService) {}
 
-  @Post()
-  async create(@Body() createExerciceDto: CreateExerciceDto) {
-    return this.exercicesService.create(createExerciceDto);
-  }
+    @Post()
+    async create(@Body() createExerciceDto: CreateExerciceDto) {
+        return this.exercicesService.create(createExerciceDto);
+    }
 
-  @Get(':id')
-  findOne(@Param('id') id: number): Promise<Exercice | null> {
-    return this.exercicesService.findOne(+id);
-  }
+    @Get(':id')
+    findOne(@Param('id') id: number): Promise<Exercice | null> {
+        return this.exercicesService.findOne(+id);
+    }
 
-  @Patch(':id')
-  updateExercice(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() updateDto: UpdateExerciceDto,
-  ) {
-    return this.exercicesService.update(id, updateDto);
-  }
+    @Get('by-lesson/:lessonId')
+    async getByLessonId(@Param('lessonId', ParseIntPipe) lessonId: number) {
+        return this.exercicesService.findOneByLessonId(lessonId);
+    }
+
+
+
+    @Patch(':id')
+    updateExercice(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() updateDto: UpdateExerciceDto,
+    ) {
+        return this.exercicesService.update(id, updateDto);
+    }
   
 }
