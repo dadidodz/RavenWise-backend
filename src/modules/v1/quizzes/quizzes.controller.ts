@@ -19,6 +19,16 @@ export class QuizzesController {
         return this.quizzesService.findQuizByLessonId(lessonId);
     }
 
+    @Get('random-by-course/:courseId')
+    async getRandomQuiz(@Param('courseId', ParseIntPipe) courseId: number) {
+        return this.quizzesService.getRandomQuizByCourseId(courseId);
+    }
+
+    @Get('all-quizzes-by-course/:courseId')
+    async getAllQuizzesByCourse(@Param('courseId', ParseIntPipe) courseId: number) {
+        return this.quizzesService.findAllByCourseId(courseId);
+    }
+
     @Post('with-answers')
     createWithAnswers(@Body() dto: CreateQuizWithAnswersDto) {
         return this.quizzesService.createWithAnswers(dto);

@@ -229,6 +229,32 @@ export class QuizzesService {
         return quiz;
     }
 
+    async getRandomQuizByCourseId(courseId: number): Promise<Quiz | null> {
+        const quizzes = await this.quizRepository
+            .createQueryBuilder('quiz')
+            .innerJoinAndSelect('quiz.lesson', 'lesson')
+            .innerJoin('lesson.chapter', 'chapter')
+            .innerJoin('chapter.course', 'course')
+            .leftJoinAndSelect('quiz.answers', 'answers')
+            .where('course.id = :courseId', { courseId })
+            .getMany();
+
+        if (quizzes.length === 0) return null;
+
+        const randomIndex = Math.floor(Math.random() * quizzes.length);
+        return quizzes[randomIndex];
+    }
+
+    async findAllByCourseId(courseId: number): Promise<Quiz[]> {
+        return this.quizRepository
+            .createQueryBuilder('quiz')
+            .leftJoinAndSelect('quiz.lesson', 'lesson')
+            .leftJoinAndSelect('lesson.chapter', 'chapter')
+            .leftJoinAndSelect('chapter.course', 'course')
+            .leftJoinAndSelect('quiz.answers', 'answers') // ✅ AJOUT ICI
+            .where('course.id = :courseId', { courseId })
+            .getMany();
+    }
 
 
 }
